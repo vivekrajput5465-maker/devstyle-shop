@@ -124,8 +124,20 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <ShopProvider>
+        <div className="flex min-h-screen flex-col">
+          <SiteHeader />
+          <main className="flex-1">
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </main>
+          <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+            © {new Date().getFullYear()} CodeWithHarry Merch · Built for the community
+          </footer>
+        </div>
+        <Toaster position="top-center" />
+      </ShopProvider>
     </QueryClientProvider>
   );
+
 }
