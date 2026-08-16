@@ -96,6 +96,10 @@ function CartPage() {
               <span>Shipping</span>
               <span>Free</span>
             </div>
+            <div className="mt-1 flex items-center justify-between text-sm text-muted-foreground">
+              <span>Payment</span>
+              <span>Cash on delivery</span>
+            </div>
             <div className="mt-2 flex items-center justify-between">
               <span className="font-semibold">Total</span>
               <span className="font-display text-2xl font-bold">{inr(total)}</span>
@@ -110,10 +114,10 @@ function CartPage() {
                   return;
                 }
                 const order = checkout();
-                if (order) toast.success(`Order ${order.id} placed!`);
+                if (order) toast.success(`Order ${order.id} placed — pay cash on delivery`);
               }}
             >
-              {user ? "Place order" : "Sign in to checkout"}
+              {user ? "Place order (Cash on delivery)" : "Sign in to checkout"}
             </Button>
           </div>
         </>
