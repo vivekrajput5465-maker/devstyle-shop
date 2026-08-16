@@ -233,7 +233,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
   const login = useCallback(
     (username: string, password: string) => {
       const name = username.trim();
-      if (name === ADMIN_USERNAME) {
+      if (name.toLowerCase() === ADMIN_USERNAME) {
         if (password !== ADMIN_PASSWORD) return { ok: false, error: "Invalid credentials" };
         setUser({ username: name, role: "admin" });
         return { ok: true };
@@ -252,7 +252,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
       const name = username.trim();
       if (name.length < 3) return { ok: false, error: "Username must be 3+ characters" };
       if (password.length < 6) return { ok: false, error: "Password must be 6+ characters" };
-      if (name === ADMIN_USERNAME || accounts[name])
+      if (name.toLowerCase() === ADMIN_USERNAME || accounts[name])
         return { ok: false, error: "Username already taken" };
       setAccounts((prev) => ({ ...prev, [name]: password }));
       setUser({ username: name, role: "customer" });

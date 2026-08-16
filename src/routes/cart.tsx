@@ -114,10 +114,10 @@ function CartPage() {
                   return;
                 }
                 const order = checkout();
-                if (order) toast.success(`Order ${order.id} placed!`);
+                if (order) toast.success(`Order ${order.id} placed — pay cash on delivery`);
               }}
             >
-              {user ? "Place order" : "Sign in to checkout"}
+              {user ? "Place order (Cash on delivery)" : "Sign in to checkout"}
             </Button>
           </div>
         </>
