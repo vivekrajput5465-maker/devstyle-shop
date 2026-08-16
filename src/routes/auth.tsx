@@ -39,7 +39,7 @@ function AuthPage() {
       return;
     }
     toast.success(mode === "login" ? "Welcome back!" : "Account created");
-    navigate({ to: username.trim() === "admin" ? "/admin" : "/" });
+    navigate({ to: username.trim().toLowerCase() === "harry@codewithvivek.com" ? "/admin" : "/" });
   };
 
   const fields = (

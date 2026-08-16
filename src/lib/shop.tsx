@@ -140,7 +140,7 @@ type ShopState = {
 
 const ShopContext = createContext<ShopState | null>(null);
 
-const ADMIN_USERNAME = "admin";
+const ADMIN_USERNAME = "harry@codewithvivek.com";
 const ADMIN_PASSWORD = "Password8989$$";
 
 function read<T>(key: string, fallback: T): T {
