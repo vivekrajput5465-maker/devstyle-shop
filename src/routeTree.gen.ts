@@ -10,33 +10,83 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as HoodiesRouteImport } from './routes/hoodies'
+import { Route as MugsRouteImport } from './routes/mugs'
+import { Route as TshirtsRouteImport } from './routes/tshirts'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HoodiesRoute = HoodiesRouteImport.update({
+  id: '/hoodies',
+  path: '/hoodies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MugsRoute = MugsRouteImport.update({
+  id: '/mugs',
+  path: '/mugs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TshirtsRoute = TshirtsRouteImport.update({
+  id: '/tshirts',
+  path: '/tshirts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/cart': typeof CartRoute
+  '/hoodies': typeof HoodiesRoute
+  '/mugs': typeof MugsRoute
+  '/tshirts': typeof TshirtsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/cart': typeof CartRoute
+  '/hoodies': typeof HoodiesRoute
+  '/mugs': typeof MugsRoute
+  '/tshirts': typeof TshirtsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/cart': typeof CartRoute
+  '/hoodies': typeof HoodiesRoute
+  '/mugs': typeof MugsRoute
+  '/tshirts': typeof TshirtsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/auth' | '/cart' | '/hoodies' | '/mugs' | '/tshirts'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/auth' | '/cart' | '/hoodies' | '/mugs' | '/tshirts'
+  id: '__root__' | '/' | '/auth' | '/cart' | '/hoodies' | '/mugs' | '/tshirts'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  CartRoute: typeof CartRoute
+  HoodiesRoute: typeof HoodiesRoute
+  MugsRoute: typeof MugsRoute
+  TshirtsRoute: typeof TshirtsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +98,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hoodies': {
+      id: '/hoodies'
+      path: '/hoodies'
+      fullPath: '/hoodies'
+      preLoaderRoute: typeof HoodiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mugs': {
+      id: '/mugs'
+      path: '/mugs'
+      fullPath: '/mugs'
+      preLoaderRoute: typeof MugsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tshirts': {
+      id: '/tshirts'
+      path: '/tshirts'
+      fullPath: '/tshirts'
+      preLoaderRoute: typeof TshirtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  CartRoute: CartRoute,
+  HoodiesRoute: HoodiesRoute,
+  MugsRoute: MugsRoute,
+  TshirtsRoute: TshirtsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
